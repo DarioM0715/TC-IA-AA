@@ -1,0 +1,19 @@
+# Datos descargados (se regeneran con src/data_loader.py)
+data/raw/*.csv
+data/raw/*.xls
+data/raw/*.xlsx
+data/raw/*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Entornos
+.venv/
+venv/
+env/
+
+# Jupyter
+*.ipynb_checkpoints

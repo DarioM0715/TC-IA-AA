@@ -1,0 +1,28 @@
+# Trabajo de Curso - IA y Aprendizaje Automático
+# Entorno mínimo y reproducible (Python 3.11)
+
+# Módulo 1: ML y datos
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+joblib>=1.3
+matplotlib>=3.7
+
+# Módulo 2: lógica difusa
+scikit-fuzzy>=0.4.2
+
+# Módulo 3: algoritmo genético
+deap>=1.3.1
+
+# Descarga del dataset UCI (ID 350) y lectura del .xls original
+ucimlrepo>=0.0.7
+requests>=2.31
+xlrd>=2.0
+openpyxl>=3.1
+
+# Notebooks y ejecución reproducible
+notebook>=7.0,<8
+nbformat>=5.9
+nbconvert>=7.16
+nbclient>=0.9
+ipykernel>=6.29
