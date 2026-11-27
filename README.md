@@ -3,6 +3,9 @@
 Trabajo de Curso de la asignatura **Inteligencia Artificial y Aprendizaje Automático**  
 Universidad de las Ciencias Informáticas · Departamento de Inteligencia Computacional
 
+**Repositorio:** https://github.com/DarioM0715/TC-IA-AA.git  
+*Debe figurar en la primera página del informe PDF (exigencia del PDF de orientaciones).*
+
 ## Objetivo
 
 Desarrollar un sistema que integre las tres áreas del curso en un único problema real:
@@ -30,6 +33,16 @@ La salida final no es solo una etiqueta: es una **decisión con explicación**.
 - Licencia: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Variable objetivo: `default` (1 = impago en el siguiente mes, 0 = pago correcto).
 - Los datos **no se versionan**: se descargan desde UCI y se guardan en `data/raw/credit_default.csv` mediante `src/data_loader.py`.
+
+## Hallazgos del EDA (`notebooks/01_eda.ipynb`)
+
+- Forma: `(30000, 23)`, sin valores faltantes, 23 variables numéricas.
+- Clase objetivo: 23 364 pagos (77,88 %) y 6 636 impagos (22,12 %).
+- Clasificador trivial «siempre predecir pago»: **accuracy 77,88 % pero recall 0 % para impago**. Evidencia directa para la reflexión del informe.
+- `PAY_0`: tasa de impago del **12,8 %** en pago puntual (`0`) frente a **69,1 %** con dos meses de retraso y ∼76 % con tres o más.
+- `BILL_AMT1..6` presentan valores negativos (saldo a favor del cliente): ~590–688 por columna. No se eliminan sin justificación.
+- 35 filas duplicadas. Se documentan y se conservan de momento para no perder información sin criterio experto.
+- División **80/20 estratificada**, `random_state=42`: 24 000 train / 6 000 test, ambos con 22,12 % de impago.
 
 ## Estructura del repositorio
 
@@ -68,7 +81,7 @@ Después, abrir los notebooks **en orden numérico**.
 - [x] Leer `orientaciones_TC.pdf` y extraer requisitos
 - [x] Elegir dominio, dataset y opciones de los módulos 2 y 3
 - [x] Crear `requirements.txt` y estructura base
-- [ ] Descargar dataset y hacer EDA (`01_eda.ipynb`)
+- [x] Descargar dataset y hacer EDA (`01_eda.ipynb`)
 - [ ] Módulo 1: preprocesamiento, dos modelos y validación cruzada (`02_modelado_ml.ipynb`)
 - [ ] Módulo 2: sistema difuso (`03_incertidumbre.ipynb`)
 - [ ] Módulo 3: algoritmo genético (`04_optimizacion.ipynb`)
